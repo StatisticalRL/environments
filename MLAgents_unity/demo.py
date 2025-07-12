@@ -3,6 +3,7 @@ from gym import Env, spaces
 import numpy as np
 import matplotlib.pyplot as plt
 from mlagents_envs.environment import UnityEnvironment
+# gym_unity seems to have been  removed from Python libraries.
 from gym_unity.envs import UnityToGymWrapper
 
 
