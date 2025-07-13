@@ -34,7 +34,8 @@ python run.py
 
 # Rendering
 
-Each type of environment comes with different renderers.
+Each type of environment comes with different renderers, 
+including the null renderer that displays nothing.
 
 
 ## Text rendering:
@@ -55,7 +56,9 @@ Each type of environment comes with different renderers.
 
 # Graph rendering:
 
-This rendering is available for MDPs.
+This rendering is available for MDPs. 
+On top of the visual display, it captures a screenshot png at each time step. 
+This may be slow for large MDPs.
 
 ![alt text](demo/videos/3states.gif)
 
@@ -67,6 +70,7 @@ This rendering is available for MDPs.
 ### Grid-world rendering:
 
 This rendering is available for Gridworld-MDPs.
+On top of the visual display, it captures a screenshot png at each time step.
 
 ![alt text](demo/videos/gridworld.gif)
 
