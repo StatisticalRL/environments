@@ -25,7 +25,7 @@ python run.py
         ergo-river-swim-6
         ergo-river-swim-25
         river-swim-25
-    GRIDWORL MDPs:
+    GRIDWORLD MDPs:
         grid-random-1616
         grid-random-1212
         grid-random-88
