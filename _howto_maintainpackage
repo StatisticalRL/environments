@@ -1,0 +1,11 @@
+
+pip freeze > requirements_full.txt
+## Remove unused packages from the list to generate requirements.txt
+
+git tag -a v1.2025.07a -m "First release"
+## Don't forget to push tags (not by default in git push):  git push origin --tags or tick "push tags' in PyCharm
+
+# Setup
+python -m venv venv
+source venv/bin/activate
+pip install -r requirements.txt
