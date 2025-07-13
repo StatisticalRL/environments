@@ -18,14 +18,24 @@ def demo(envname):
      animate(env, learner, 20)
      print("-"*30+"\n")
 
-if __name__ == "__main__":
+def print_registered_environments():
     print("-"*30+ "\nList of registered environments:\n"+ "-"*30)
     [print(k) for k in registerStatisticalRLenvironments.keys()]
     print("-"*30)
 
+def random_environment():
     envname = np.random.choice(list(registerStatisticalRLenvironments.keys()))
     demo(envname)
 
-
+def all_environments():
     for e in registerStatisticalRLenvironments:
         demo(e)
+
+if __name__ == "__main__":
+
+    print_registered_environments()
+    random_environment()
+    all_environments()
+
+
+
