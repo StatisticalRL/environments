@@ -3,10 +3,10 @@ Environments for Statistical Reinforcement Learning
 
 ## Installation
 
-bash setup.sh
+    bash setup.sh
 
 ## Test
-python run.py
+    python run.py
 
 # List of environments:
     

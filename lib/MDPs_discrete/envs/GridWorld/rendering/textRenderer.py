@@ -13,6 +13,7 @@ class GridworldWithWallRenderer:
     def initRender(self, env):
         outfile = sys.stdout
         outfile.write("Actions: "+ str(env.nameActions) + "\n")
+        outfile.write("Legend: Red=current state, X=wall, G=goal state\n")
 
     def render(self,env,current,lastaction,lastreward):
 
@@ -55,6 +56,7 @@ class GridworldRenderer:
     def initRender(self, env):
         outfile = sys.stdout
         outfile.write("Actions: "+ str(env.nameActions) + "\n")
+        outfile.write("Legend: Red=current state, X=wall, G=goal state\n")
 
     def render(self,env,current,lastaction,lastreward):
 
