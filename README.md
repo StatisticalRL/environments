@@ -32,6 +32,20 @@ Environments for Statistical Reinforcement Learning
         grid-2-room
         grid-4-room
 
+The library contains several stochastic MDPs, that is for which transition and reward functions are not deterministic.
+
+## Randomly generated environments:
+Furthermore, the library supports random generations of MDPs.
+The environments containing "random" in their name are randomly generated MDPs, 
+that is with randomly generated transition and reward (stochastic) functions.
+For reproducibility reasons, they are generated with a given seed.
+
+You can modify them in the registration list "registerStatisticalRLenvironments" available in the init file of lib.
+In this list, you will find environments registered with specific parameters, including the (last) parameter "seed" which is used to generate the random transition and reward functions.
+    
+    "random-small" : lambda x: registerRandomMDP(nbStates=3, nbActions=4, maxProportionSupportTransition=0.5, maxProportionSupportReward=0.4, maxProportionSupportStart=0.1, minNonZeroProbability=0.15, minNonZeroReward=0.25, rewardStd=0.1,seed=5),
+
+Note: fixing this seed  (here sedd=5) does not prevent the transitions/rewards to be stochastic, as they are using another random number generating process.
 # Rendering
 
 Each type of environment comes with different renderers, 
