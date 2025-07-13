@@ -1,6 +1,6 @@
 
-from environments.MDPs_discrete.gymWrapper import DiscreteMDP
-from environments.MDPs_discrete.gymWrapper import Dirac
+from lib.MDPs_discrete.gymWrapper import DiscreteMDP
+from lib.MDPs_discrete.gymWrapper import Dirac
 import scipy.stats as stat
 import numpy as np
 

@@ -13,7 +13,6 @@ class textRenderer:
     def initRender(self, env):
         outfile = sys.stdout
         outfile.write("Actions: "+ str(env.nameActions) + "\n")
-        outfile.write("Legend: Red=current state, Blue=possible next states\n")
 
     def render(self,env,current,lastaction,lastreward):
 
@@ -27,21 +26,15 @@ class textRenderer:
         outfile = sys.stdout
         #outfile = StringIO() if mode == 'ansi' else sys.stdout
 
-        desc = [str(s) for s in env.states]
-
-        desc[current] = utils.colorize(desc[current], "red", highlight=True)
-        for a in env.actions:
-            for ssl in env.P[current][a]:
-                if (ssl[0] > 0):
-                    desc[ssl[1]] = utils.colorize(desc[ssl[1]], "blue", highlight=True)
+        desc = ["."]
 
         #desc.append(" \t\tr=" + str(lastreward))
 
         if lastaction is not None:
-            outfile.write("({})\tr={}\t".format(env.nameActions[lastaction % 26],str(lastreward)))
+            outfile.write("({})\tr={}\n".format(env.nameActions[lastaction % 26],str("{:01.2f}".format(lastreward))))
         else:
-            outfile.write("Initial:\t")
-        outfile.write("".join(''.join(line) for line in desc) + "\n")
+            outfile.write("")
+        outfile.write("".join(''.join(line) for line in desc) + "\t")
 
         #if mode != 'text':
         #    return outfile

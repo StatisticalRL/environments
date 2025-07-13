@@ -1,11 +1,11 @@
 #from experiments.runExperiments import *
-import environments.registerEnvironments as bW
-import learners.Generic.Random as lr
+import lib as bW
 import numpy as np
 
 #################################
 # Running a single experiment:
 #################################
+
 
 def animate(env, learner, timeHorizon):
     print("Render mode:", str(env.rendermode))
@@ -33,12 +33,12 @@ def animate(env, learner, timeHorizon):
 
 def demo_riverSwim():
      testName = 'ergo-river-swim-6'
-     envName = (bW.registerWorlds[testName])(0)
+     envName = (bW.registerStatisticalRLenvironments[testName])(0)
      env = bW.makeWorld(envName)
      rendermode = np.random.choice(list(env.renderers.keys()))
      print("Choice of renderer:", rendermode, " in ", list(env.renderers.keys()))
      env.change_rendermode(rendermode)
-     learner = lr.Random(env)
+     learner = RandomAgent(env)
      #learner = lh.Human(env)
      # learner = le.UCRL3_lazy(env.observation_space.n, env.action_space.n, delta=0.05)
      #print(env.renderers.keys(),env.rendermode)
@@ -51,13 +51,13 @@ def demo_randomGrid():
      testName = 'grid-random-88' #TODO: numpy randint has recent changed not yet propagated.
      #testName = 'grid-2-room'
 
-     envName = (bW.registerWorlds[testName])(0)
+     envName = (bW.registerStatisticalRLenvironments[testName])(0)
      env = bW.makeWorld(envName)
      rendermode = np.random.choice(list(env.renderers.keys()))
      print("Choice of renderer:", rendermode, " in ", list(env.renderers.keys()))
      #env.change_rendermode('gw-pyplot')
      env.change_rendermode(rendermode)
-     learner = lr.Random(env)
+     learner = RandomAgent(env)
      #learner = bl.PSRL(env.observation_space.n, env.action_space.n, delta=0.05)
      #learner = lh.Human(env)
      # learner = le.UCRL3_lazy(env.observation_space.n, env.action_space.n, delta=0.05)
@@ -66,7 +66,7 @@ def demo_randomGrid():
 
 def demo_randomMDP():
     testName = 'random-12'
-    envName = (bW.registerWorlds[testName])(0)
+    envName = (bW.registerStatisticalRLenvironments[testName])(0)
     env = bW.makeWorld(envName)
     rendermode = np.random.choice(list(env.renderers.keys()))
     print("Choice of renderer:", rendermode, " in ", list(env.renderers.keys()))
@@ -76,7 +76,7 @@ def demo_randomMDP():
     #env.env.rendermode = 'networkx'
     #env.env.rendermode = 'pydot'
     env.change_rendermode(rendermode)
-    learner = lr.Random(env)
+    learner = RandomAgent(env)
     # learner = le.UCRL3_lazy(env.observation_space.n, env.action_space.n, delta=0.05)
     animate(env, learner, 5)
     #animate(env, learner, 50, 'text')

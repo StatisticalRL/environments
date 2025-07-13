@@ -1,5 +1,5 @@
 import numpy as np
-import environments.MABs.Distributions as arms
+import lib.MABs.Distributions as arms
 import string
 
 
@@ -7,7 +7,7 @@ from gymnasium import Env, spaces
 from gymnasium.utils import seeding
 
 
-import environments.MABs.rendering.textRenderer as tRendering
+import lib.MABs.rendering.textRenderer as tRendering
 
 class MAB(Env):
     def __init__(self, arms, distributionType='unknown', structureType='unknown', structureParameter=None, name="MAB"):
@@ -41,6 +41,11 @@ class MAB(Env):
 
     #def generateReward(self, arm):
     #    return self.arms[arm].sample()
+
+
+    def change_rendermode(self,rendermode):
+        self.rendermode = rendermode
+        self.initializedRenderer = False
 
     def seed(self, seed=None):
         self.np_random, seed = seeding.np_random(seed)

@@ -5,18 +5,18 @@ import scipy.stats as stat
 #import matplotlib.pyplot as plt
 
 
-import environments.MDPs_discrete.envs.GridWorld.rendering.pyplotRenderer as gwppRendering
-import environments.MDPs_discrete.envs.GridWorld.rendering.textRenderer as gwtRendering
+import lib.MDPs_discrete.envs.GridWorld.rendering.pyplotRenderer as gwppRendering
+import lib.MDPs_discrete.envs.GridWorld.rendering.textRenderer as gwtRendering
 
 #from gym import utils
-#from gym.envs.toy_text import discrete
-#import environments.MDPs_discrete.gymWrapper
+#from gym.lib.toy_text import discrete
+#import lib.MDPs_discrete.gymWrapper
 #from gym import Env, spaces
 #import string
-from environments.MDPs_discrete.gymWrapper import *
-#from environments.MDPs_discrete.gymWrapper import Dirac
+from lib.MDPs_discrete.gymWrapper import *
+#from lib.MDPs_discrete.gymWrapper import Dirac
 
-from environments.MDPs_discrete.utils import categorical_sample
+from lib.MDPs_discrete.utils import categorical_sample
 
 
 
