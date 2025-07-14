@@ -3,13 +3,11 @@ Environments for Statistical Reinforcement Learning
 
 ## Installation
 
-    python -m venv venv
-    source venv/bin/activate
-    pip install -r requirements.txt
+    pip install statisticalRL-environments
 
 
 ## Test
-    python run.py
+    python fulldemo.py
 
 # List of environments:
     
