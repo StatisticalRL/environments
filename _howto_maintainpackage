@@ -9,3 +9,18 @@ git tag -a v1.2025.07a -m "First release"
 python -m venv venv
 source venv/bin/activate
 pip install -r requirements.txt
+
+
+# Build the package
+python -m build
+
+# Upload to PyPI
+twine upload dist/*
+
+Need a PyPI account and API token. You can test first with TestPyPI, by uploading to that instead.
+
+# After uploading to TestPyPI, test with:
+pip install --index-url https://test.pypi.org/simple/ statisticalRL-environments
+
+#Once setup, upload to real PYPI and do:
+pip install statisticalRL-environments

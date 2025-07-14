@@ -1,4 +1,4 @@
-from demo.fulldemo import print_registered_environments,random_environment,all_environments
+from src.statisticalrl_environments.fulldemo import print_registered_environments,random_environment,all_environments
 
 if __name__ == "__main__":
     print("Running the demo")

@@ -3,7 +3,10 @@ Environments for Statistical Reinforcement Learning
 
 ## Installation
 
-    bash setup.sh
+    python -m venv venv
+    source venv/bin/activate
+    pip install -r requirements.txt
+
 
 ## Test
     python run.py
@@ -59,14 +62,14 @@ including the null renderer that displays nothing.
 
 ### MAB Text rendering:
 
-![alt text](demo/screenshots/TextRenderingBandit.png)
+![alt text](media/screenshots/TextRenderingBandit.png)
 
 ### MDP Text rendering:
 
-![alt text](demo/screenshots/TextRendering.png)
+![alt text](media/screenshots/TextRendering.png)
 
 ### Gridworld-MDP Text rendering
-![alt text](demo/screenshots/TextRenderingGridWorld.png)
+![alt text](media/screenshots/TextRenderingGridWorld.png)
 
 # Graph rendering:
 
@@ -74,11 +77,11 @@ This rendering is available for MDPs.
 On top of the visual display, it captures a screenshot png at each time step. 
 This may be slow for large MDPs.
 
-![alt text](demo/videos/3states.gif)
+![alt text](media/videos/3states.gif)
 
-![alt text](demo/videos/riverswim2.gif)
+![alt text](media/videos/riverswim2.gif)
 
-![alt text](demo/videos/graph.gif)
+![alt text](media/videos/graph.gif)
 
 
 ### Grid-world rendering:
@@ -86,8 +89,8 @@ This may be slow for large MDPs.
 This rendering is available for Gridworld-MDPs.
 On top of the visual display, it captures a screenshot png at each time step.
 
-![alt text](demo/videos/gridworld.gif)
+![alt text](media/videos/gridworld.gif)
 
 
-![alt text](demo/videos/gridworldbig.gif)
+![alt text](media/videos/gridworldbig.gif)
 

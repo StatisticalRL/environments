@@ -6,8 +6,8 @@ INFINITY=sys.maxsize
 
 
 """
-This file contains methods to register several MDP/MABS lib into gym.
-Name of lib should not contain symbol '_'. 
+This file contains methods to register several MDP/MABS src into gym.
+Name of src should not contain symbol '_'. 
 
 """
 ### MABS
@@ -16,7 +16,7 @@ def registerBernBandit(means,  max_steps=INFINITY,  reward_threshold=1.):
     name = 'MAB-Bernoulli-v0'
     register(
         id=name,
-        entry_point='lib.MABs.StochasticBandits:BernoulliBandit',
+        entry_point='src.MABs.StochasticBandits:BernoulliBandit',
         max_episode_steps=max_steps,
         reward_threshold=reward_threshold,
         kwargs={'means': means, 'name':name }
@@ -30,7 +30,7 @@ def registerRandomMDP(nbStates=5, nbActions=4, max_steps=INFINITY, reward_thresh
         name = 'ErgodicRandomMDP-S' + str(nbStates) + '_A' + str(nbActions) + '_s' + str(seed) + '-v0'
     register(
         id=name,
-        entry_point='lib.MDPs_discrete.envs.RandomMDP:RandomMDP',
+        entry_point='src.MDPs_discrete.envs.RandomMDP:RandomMDP',
         max_episode_steps=max_steps,
         reward_threshold=reward_threshold,
         kwargs={'nbStates': nbStates, 'nbActions': nbActions, 'maxProportionSupportTransition': maxProportionSupportTransition, 'maxProportionSupportReward': maxProportionSupportReward,
@@ -42,7 +42,7 @@ def registerRiverSwim(nbStates=5, max_steps=INFINITY, reward_threshold=np.infty,
     name = 'RiverSwim-S'+str(nbStates)+'-v0'
     register(
         id=name,
-        entry_point='lib.MDPs_discrete.envs.RiverSwim:RiverSwim',
+        entry_point='src.MDPs_discrete.envs.RiverSwim:RiverSwim',
         max_episode_steps=max_steps,
         reward_threshold=reward_threshold,
         kwargs={'nbStates': nbStates, 'rightProbaright': rightProbaright, 'rightProbaLeft': rightProbaLeft,
@@ -55,7 +55,7 @@ def registerErgodicRiverSwim(nbStates=5, max_steps=INFINITY, reward_threshold=np
     name = 'ErgodicRiverSwim-S'+str(nbStates)+'-v0'
     register(
         id=name,
-        entry_point='lib.MDPs_discrete.envs.RiverSwim:ErgodicRiverSwim',
+        entry_point='src.MDPs_discrete.envs.RiverSwim:ErgodicRiverSwim',
         max_episode_steps=max_steps,
         reward_threshold=reward_threshold,
         kwargs={'nbStates': nbStates, 'rightProbaright': rightProbaright, 'rightProbaLeft': rightProbaLeft,
@@ -68,7 +68,7 @@ def registerGridworld(sizeX=10, sizeY=10, map_name="4-room", rewardStd=0., initi
     name ='Gridworld-'+map_name+'-v0'
     register(
         id=name,
-        entry_point='lib.MDPs_discrete.envs.GridWorld.gridworld:GridWorld',
+        entry_point='src.MDPs_discrete.envs.GridWorld.gridworld:GridWorld',
         max_episode_steps=max_steps,
         reward_threshold=reward_threshold,
         kwargs={'sizeX': sizeX,'sizeY':sizeY,'map_name':map_name,'rewardStd':rewardStd, 'initialSingleStateDistribution':initialSingleStateDistribution,'start':start, 'goal':goal, 'seed':seed, 'name':name}
@@ -80,7 +80,7 @@ def registerRandomGridworld(sizeX=10, sizeY=10,rewardStd=0., initialSingleStateD
     name ='RandomGridworld-'+str(sizeX)+'x'+str(sizeY)+'_s'+str(seed)+'-v0'
     register(
         id=name,
-        entry_point='lib.MDPs_discrete.envs.GridWorld.gridworld:GridWorld',
+        entry_point='src.MDPs_discrete.envs.GridWorld.gridworld:GridWorld',
         max_episode_steps=max_steps,
         reward_threshold=reward_threshold,
         kwargs={'sizeX': sizeX,'sizeY':sizeY,'map_name':'random','rewardStd':rewardStd, 'initialSingleStateDistribution':initialSingleStateDistribution,'start':None, 'goal':None, 'name':name, 'seed':seed, 'density':density}
@@ -92,7 +92,7 @@ def registerThreeState(delta = 0.005, max_steps=INFINITY, reward_threshold=np.in
     name = 'ThreeState-v0'
     register(
         id=name,
-        entry_point='lib.MDPs_discrete.envs.ThreeStateMDP:ThreeState',
+        entry_point='src.MDPs_discrete.envs.ThreeStateMDP:ThreeState',
         max_episode_steps=max_steps,
         reward_threshold=reward_threshold,
         kwargs={'delta': delta, 'fixed_reward': fixed_reward,'name':name }
@@ -104,7 +104,7 @@ def registerNasty(delta = 0.005, epsilon=0.05, max_steps=INFINITY, reward_thresh
     name = 'Nasty-v0'
     register(
         id=name,
-        entry_point='lib.MDPs_discrete.envs.ThreeStateMDP:Nasty',
+        entry_point='src.MDPs_discrete.envs.ThreeStateMDP:Nasty',
         max_episode_steps=max_steps,
         reward_threshold=reward_threshold,
         kwargs={'delta': delta, 'epsilon': epsilon, 'fixed_reward': fixed_reward,'name':name }
@@ -142,6 +142,13 @@ registerStatisticalRLenvironments = {
     "grid-4-room" : lambda x: registerGridworld(sizeX=7, sizeY=7, map_name="4-room", rewardStd=0.0, initialSingleStateDistribution=True,start=[1,1],goal=[5,5], seed=1)
 }
 
+
+def print_envlist():
+    print("-"*30)
+    print("List of registered environments: ")
+    for k in registerStatisticalRLenvironments.keys():
+        print("\t"+k)
+    print("-"*30)
 
 def register_MDPs_discrete(envName):
     if (envName in registerStatisticalRLenvironments.keys()):

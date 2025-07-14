@@ -1,7 +1,6 @@
 
-from lib.MDPs_discrete.gymWrapper import DiscreteMDP
-from lib.MDPs_discrete.gymWrapper import Dirac
-import scipy.stats as stat
+from src.statisticalrl_environments.MDPs_discrete.gymWrapper import DiscreteMDP
+from src.statisticalrl_environments.MDPs_discrete.gymWrapper import Dirac
 import numpy as np
 
 class RiverSwim(DiscreteMDP):

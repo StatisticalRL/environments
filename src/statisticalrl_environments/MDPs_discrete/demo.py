@@ -1,5 +1,5 @@
 #from experiments.runExperiments import *
-import lib as bW
+import src as bW
 import numpy as np
 
 #################################
