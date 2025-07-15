@@ -1,21 +1,23 @@
-#import numpy as np
+import numpy as np
 #import sys
 #from six import StringIO, b
 import scipy.stats as stat
 #import matplotlib.pyplot as plt
 
 
-import src.statisticalrl_environments.MDPs_discrete.envs.GridWorld.rendering.pyplotRenderer as gwppRendering
-import src.statisticalrl_environments.MDPs_discrete.envs.GridWorld.rendering.textRenderer as gwtRendering
+import MDPs_discrete.envs.GridWorld.rendering.pyplotRenderer as gwppRendering
+import MDPs_discrete.envs.GridWorld.rendering.textRenderer as gwtRendering
+from MDPs_discrete.gymWrapper import DiscreteMDP
 
 #from gym import utils
 #from gym.src.toy_text import discrete
 #import src.MDPs_discrete.gymWrapper
-#from gym import Env, spaces
+from gymnasium import Env, spaces
+from gymnasium.utils import seeding
 #import string
-#from src.MDPs_discrete.gymWrapper import Dirac
+from MDPs_discrete.gymWrapper import Dirac
 
-from src.statisticalrl_environments.MDPs_discrete.utils import categorical_sample
+from MDPs_discrete.utils import categorical_sample
 
 
 

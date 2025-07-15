@@ -1,5 +1,5 @@
 
-from src.statisticalrl_environments import registerStatisticalRLenvironments,makeWorld,make
+from register import registerStatisticalRLenvironments,make
 import numpy as np
 
 
