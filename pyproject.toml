@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "statisticalRL-environments"
-version = "1.250716"
+version = "1.250716.1"
 description = "Environments for the Statistical Reinforcement Learning project"
 authors = [{ name = "Odalric-Ambym Maillard", email = "odalric.maillard@inria.fr" }]
 readme = "README.md"
@@ -26,4 +26,6 @@ Homepage = "https://github.com/StatisticalRL/environments"
 
 [tool.setuptools]
 package-dir = { "" = "src" }
-packages = ["statisticalrl_environments"]
+
+[tool.setuptools.packages.find]
+where = ["src"]
