@@ -60,14 +60,15 @@ including the null renderer that displays nothing.
 
 ### MAB Text rendering:
 
-![alt text](https://github.com/StatisticalRL/environments/tree/main/media/screenshots/TextRenderingBandit.png)
+![alt text](https://raw.githubusercontent.com/StatisticalRL/environments/main/media/screenshots/TextRendering.png)
+
 
 ### MDP Text rendering:
 
-![alt text](https://github.com/StatisticalRL/environments/tree/main/media/screenshots/TextRendering.png)
+![alt text](https://raw.githubusercontent.com/StatisticalRL/environments/main/media/screenshots/TextRendering.png)
 
 ### Gridworld-MDP Text rendering
-![alt text](https://github.com/StatisticalRL/environments/tree/main/media/screenshots/TextRenderingGridWorld.png)
+![alt text](https://raw.githubusercontent.com/StatisticalRL/environments/main/media/screenshots/TextRenderingGridWorld.png)
 
 # Graph rendering:
 
@@ -75,11 +76,11 @@ This rendering is available for MDPs.
 On top of the visual display, it captures a screenshot png at each time step. 
 This may be slow for large MDPs.
 
-![alt text](https://github.com/StatisticalRL/environments/tree/main/media/videos/3states.gif)
+![alt text](https://raw.githubusercontent.com/StatisticalRL/environments/main/media/videos/3states.gif)
 
-![alt text](https://github.com/StatisticalRL/environments/tree/main/media/videos/riverswim2.gif)
+![alt text](https://raw.githubusercontent.com/StatisticalRL/environments/main/media/videos/riverswim2.gif)
 
-![alt text](https://github.com/StatisticalRL/environments/tree/main/media/videos/graph.gif)
+![alt text](https://raw.githubusercontent.com/StatisticalRL/environments/main/media/videos/graph.gif)
 
 
 ### Grid-world rendering:
@@ -87,8 +88,8 @@ This may be slow for large MDPs.
 This rendering is available for Gridworld-MDPs.
 On top of the visual display, it captures a screenshot png at each time step.
 
-![alt text](https://github.com/StatisticalRL/environments/tree/main/media/videos/gridworld.gif)
+![alt text](https://raw.githubusercontent.com/StatisticalRL/environments/main/media/videos/gridworld.gif)
 
 
-![alt text](https://github.com/StatisticalRL/environments/tree/main/media/videos/gridworldbig.gif)
+![alt text](https://raw.githubusercontent.com/StatisticalRL/environments/main/media/videos/gridworldbig.gif)
 
