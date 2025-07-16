@@ -19,7 +19,7 @@ python -m build
 twine upload  --repository testpypi  -u __token__ -p <YOUR_TESTPYPI_TOKEN>  dist/*
 
 # After uploading to TestPyPI, test with:
-pip install -i https://test.pypi.org/simple/ statisticalRL-environments==1.2025.7a0
+pip install -i https://test.pypi.org/simple/ statisticalRL-environments==1.2025.7.15
 or
 pip install --index-url https://test.pypi.org/simple/ statisticalRL-environments
 

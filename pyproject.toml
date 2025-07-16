@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "statisticalRL-environments"
-version = "1.2025.07.15"
+version = "1.2025.07.15b"
 description = "Environments for the Statistical Reinforcement Learning project"
 authors = [{ name = "Odalric-Ambym Maillard", email = "odalric.maillard@inria.fr" }]
 readme = "README.md"
@@ -12,7 +12,7 @@ license = { text = "MIT" }
 requires-python = ">=3.8"
 dependencies = [
     "six==1.16.0",
-    "gymnasium==1.1.1",
+    "gymnasium==1.2.0",
     "numpy==1.24.3",
     "networkx==2.8.8",
     "matplotlib==3.7.2",
