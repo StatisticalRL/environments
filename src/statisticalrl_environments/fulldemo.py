@@ -1,5 +1,5 @@
 
-from register import registerStatisticalRLenvironments,make
+from statisticalrl_environments.register import registerStatisticalRLenvironments,make
 import numpy as np
 
 

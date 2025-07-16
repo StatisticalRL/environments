@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "statisticalRL-environments"
-version = "1.250716.1"
+version = "1.250716.4"
 description = "Environments for the Statistical Reinforcement Learning project"
 authors = [{ name = "Odalric-Ambym Maillard", email = "odalric.maillard@inria.fr" }]
 readme = "README.md"

@@ -1,12 +1,12 @@
 
-from MDPs_discrete.utils import *
+from statisticalrl_environments.MDPs_discrete.utils import *
 import string
 
 from gymnasium import Env, spaces
 from gymnasium.utils import seeding
 
-import MDPs_discrete.rendering.networkxRenderer as gRendering
-import MDPs_discrete.rendering.textRenderer as tRendering
+import statisticalrl_environments.MDPs_discrete.rendering.networkxRenderer as gRendering
+import statisticalrl_environments.MDPs_discrete.rendering.textRenderer as tRendering
 
 
 class DiscreteMDP(Env):

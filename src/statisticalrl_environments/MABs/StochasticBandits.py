@@ -1,5 +1,5 @@
 import numpy as np
-import MABs.Distributions as arms
+import statisticalrl_environments.MABs.Distributions as arms
 import string
 
 
@@ -7,7 +7,7 @@ from gymnasium import Env, spaces
 from gymnasium.utils import seeding
 
 
-import MABs.rendering.textRenderer as tRendering
+import statisticalrl_environments.MABs.rendering.textRenderer as tRendering
 
 class MAB(Env):
     def __init__(self, arms, distributionType='unknown', structureType='unknown', structureParameter=None, name="MAB"):

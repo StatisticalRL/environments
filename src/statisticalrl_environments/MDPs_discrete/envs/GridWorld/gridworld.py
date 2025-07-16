@@ -5,9 +5,9 @@ import scipy.stats as stat
 #import matplotlib.pyplot as plt
 
 
-import MDPs_discrete.envs.GridWorld.rendering.pyplotRenderer as gwppRendering
-import MDPs_discrete.envs.GridWorld.rendering.textRenderer as gwtRendering
-from MDPs_discrete.gymWrapper import DiscreteMDP
+import statisticalrl_environments.MDPs_discrete.envs.GridWorld.rendering.pyplotRenderer as gwppRendering
+import statisticalrl_environments.MDPs_discrete.envs.GridWorld.rendering.textRenderer as gwtRendering
+from statisticalrl_environments.MDPs_discrete.gymWrapper import DiscreteMDP
 
 #from gym import utils
 #from gym.src.toy_text import discrete
@@ -15,9 +15,9 @@ from MDPs_discrete.gymWrapper import DiscreteMDP
 from gymnasium import Env, spaces
 from gymnasium.utils import seeding
 #import string
-from MDPs_discrete.gymWrapper import Dirac
+from statisticalrl_environments.MDPs_discrete.gymWrapper import Dirac
 
-from MDPs_discrete.utils import categorical_sample
+from statisticalrl_environments.MDPs_discrete.utils import categorical_sample
 
 
 
