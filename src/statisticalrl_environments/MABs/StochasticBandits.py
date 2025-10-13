@@ -82,6 +82,10 @@ class MAB(Env):
                                      self.lastreward)
 
 
+
+
+
+
 ## some functions that create specific MABs
 
 def BernoulliBandit(means, structure='unknown', parameter=None, name="MAB-Bernoulli"):
@@ -89,10 +93,17 @@ def BernoulliBandit(means, structure='unknown', parameter=None, name="MAB-Bernou
     return MAB([arms.Bernoulli(p) for p in means], distributionType='Bernoulli', structureType=structure,
                structureParameter=parameter, name=name)
 
+def BinomialBandit(means, repetitions=200, name="MAB-Binomial"):
+    """define a Bernoulli MAB from a vector of means"""
+    s="-".join(str(m) for m in means)
+    name = f'{name}{repetitions}-means-{s}'
+    return MAB([arms.Binomial(repetitions,p) for p in means], distributionType='Binomial', structureType='unknown',
+               structureParameter=None, name=name)
 
-def GaussianBandit(means, var=1, structure='unknown', parameter=None, name="MAB-Gaussian"):
+
+def GaussianBandit(means, vars, structure='unknown', parameter=None, name="MAB-Gaussian"):
     """define a Gaussian MAB from a vector of means"""
-    return MAB([arms.Gaussian(p, var) for p in means], distributionType='Gaussian', structureParameter=parameter,name=name)
+    return MAB([arms.Gaussian(m, v) for m,v in zip(means,vars)], distributionType='Gaussian', structureType=structure,structureParameter=parameter,name=name)
 
 
 def RandomBernoulliBandit(Delta, K, name="MAB-RandomBernoulli"):

@@ -17,6 +17,18 @@ class Bernoulli:
         return float(random() < self.mean)
 
 
+class Binomial:
+
+    def __init__(self, n, p):
+        # create a Bernoulli arm with mean p
+        self.mean = p*n
+        self.n = n
+        self.p=p
+
+    def sample(self):
+        # generate a reward from a Bernoulli arm
+        return np.random.binomial(self.n,self.p)
+
 class Gaussian:
 
     def __init__(self, mu, var=1):

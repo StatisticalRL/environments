@@ -23,6 +23,20 @@ def registerBernBandit(means,  max_steps=INFINITY,  reward_threshold=1.):
     )
     return name
 
+
+def registerGaussBandit(means,  vars, max_steps=INFINITY,  reward_threshold=1.):
+    name = 'MAB-Gaussian-v0'
+    register(
+        id=name,
+        entry_point='statisticalrl_environments.MABs.StochasticBandits:GaussianBandit',
+        max_episode_steps=max_steps,
+        reward_threshold=reward_threshold,
+        kwargs={'means': means, 'vars': vars, 'name':name }
+    )
+    return name
+
+
+
 ### MDPs
 def registerRandomMDP(nbStates=5, nbActions=4, max_steps=INFINITY, reward_threshold=np.infty, maxProportionSupportTransition=0.5, maxProportionSupportReward=0.1, maxProportionSupportStart=0.2, minNonZeroProbability=0.2, minNonZeroReward=0.3, rewardStd=0.5, ergodic=0.,seed=None):
     name = 'RandomMDP-S'+str(nbStates)+'_A'+str(nbActions)+'_s'+str(seed)+'-v0'
@@ -115,6 +129,7 @@ def registerNasty(delta = 0.005, epsilon=0.05, max_steps=INFINITY, reward_thresh
 
 registerStatisticalRLenvironments = {
     "mab-bernoulli": lambda x: registerBernBandit(means=[0.2, 0.8, 0.3, 0.7]),
+    "mab-gaussian": lambda x: registerGaussBandit(means=[0.2, 0.8, 0.3, 0.7],vars=[1.,1.,1.,1.]),
     "random-rich": lambda x: registerRandomMDP(nbStates=10, nbActions=4, maxProportionSupportTransition=0.12,
                                             maxProportionSupportReward=0.8, maxProportionSupportStart=0.1,
                                             minNonZeroProbability=0.15, minNonZeroReward=0.4, rewardStd=0, seed=10),
@@ -150,7 +165,7 @@ def print_envlist():
         print("\t"+k)
     print("-"*30)
 
-def register_MDPs_discrete(envName):
+def register_env(envName):
     if (envName in registerStatisticalRLenvironments.keys()):
         regName = (registerStatisticalRLenvironments[envName])(0)
         print("[REGISTER.INFO] Environment " + envName + " registered as " + regName)
@@ -167,4 +182,4 @@ def makeWorld(registername):
     return gymnasium.make(registername).unwrapped
 
 def make(envName):
-    return makeWorld(register_MDPs_discrete(envName))
+    return makeWorld(register_env(envName))
