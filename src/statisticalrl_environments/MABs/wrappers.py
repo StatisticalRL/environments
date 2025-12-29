@@ -78,3 +78,16 @@ class BatchMAB(MAB):
         info["nextbatchsize"]=B
         info["mean"]=sum(batchmean)
         return (batchobservation,batchreward,False,False,info)
+
+
+
+
+from statisticalrl_environments.MABs.StochasticBandits import BinomialBandit
+class BatchQBinMAB(BatchMAB):
+    def __init__(self,probabilities,batchsize,quantization_range,repetitions,name):
+        # BinomialBandit
+        # Base bandit: mab
+        # reward distribution or each arm:  Sum of 200 Bernoulli, i.e. Binomial.
+        #self.nameActions = action_names
+        super(BatchQBinMAB, self).__init__(QuantizedMAB(BinomialBandit(means=probabilities,repetitions=repetitions),quantization_range,repetitions),batchsize)
+        self.name = name

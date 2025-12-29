@@ -36,6 +36,28 @@ def registerGaussBandit(means,  vars, max_steps=INFINITY,  reward_threshold=1.):
     return name
 
 
+def registerBinomialBandit(means,  repetitions, max_steps=INFINITY,  reward_threshold=1.):
+    name = 'MAB-Gaussian-v0'
+    register(
+        id=name,
+        entry_point='statisticalrl_environments.MABs.StochasticBandits:BinomialBandit',
+        max_episode_steps=max_steps,
+        reward_threshold=repetitions,
+        kwargs={'means': means, 'repetitions': repetitions, 'name':name }
+    )
+    return name
+
+def registerBatchQBinMAB(means,batchsize,quantization_range,repetitions):
+    s="-".join(str(m) for m in means)
+    name = f'Binomial200-batch{batchsize}-tol{quantization_range}-means-{s}-v0'
+    register(
+        id=name,
+        entry_point='statisticalrl_environments.MABs.wrappers:BatchQBinMAB',
+        max_episode_steps=INFINITY,
+        reward_threshold=1.,
+        kwargs={'probabilities':means,'batchsize':lambda x:batchsize,'quantization_range':quantization_range,'repetitions':repetitions,'name':name }
+    )
+    return name
 
 ### MDPs
 def registerRandomMDP(nbStates=5, nbActions=4, max_steps=INFINITY, reward_threshold=np.infty, maxProportionSupportTransition=0.5, maxProportionSupportReward=0.1, maxProportionSupportStart=0.2, minNonZeroProbability=0.2, minNonZeroReward=0.3, rewardStd=0.5, ergodic=0.,seed=None):
@@ -130,6 +152,9 @@ def registerNasty(delta = 0.005, epsilon=0.05, max_steps=INFINITY, reward_thresh
 registerStatisticalRLenvironments = {
     "mab-bernoulli": lambda x: registerBernBandit(means=[0.2, 0.8, 0.3, 0.7]),
     "mab-gaussian": lambda x: registerGaussBandit(means=[0.2, 0.8, 0.3, 0.7],vars=[1.,1.,1.,1.]),
+    "mab-binomial": lambda x: registerBinomialBandit(means=[0.2, 0.8, 0.3, 0.7], repetitions=200),
+    "mab-batch-quantized": lambda x: registerBatchQBinMAB(means=[0.1, 0.15, 0.2, 0.75, 0.85, 0.9], batchsize=5,
+                                                       quantization_range=15, repetitions=200),
     "random-rich": lambda x: registerRandomMDP(nbStates=10, nbActions=4, maxProportionSupportTransition=0.12,
                                             maxProportionSupportReward=0.8, maxProportionSupportStart=0.1,
                                             minNonZeroProbability=0.15, minNonZeroReward=0.4, rewardStd=0, seed=10),

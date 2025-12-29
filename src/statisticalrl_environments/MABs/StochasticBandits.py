@@ -106,6 +106,8 @@ def GaussianBandit(means, vars, structure='unknown', parameter=None, name="MAB-G
     return MAB([arms.Gaussian(m, v) for m,v in zip(means,vars)], distributionType='Gaussian', structureType=structure,structureParameter=parameter,name=name)
 
 
+
+
 def RandomBernoulliBandit(Delta, K, name="MAB-RandomBernoulli"):
     """generates a K-armed Bernoulli instance at random where Delta is the gap between the best and second best arm"""
     maxMean = Delta + np.random.rand() * (1. - Delta)
