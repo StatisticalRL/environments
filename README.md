@@ -13,6 +13,9 @@ Environments for Statistical Reinforcement Learning
     
     MABS:
         mab-bernoulli
+        mab-gaussian
+        mab-binomial
+        mab-batch-quantized
     MDPs:
         random-rich
         ergodic-random-rich
