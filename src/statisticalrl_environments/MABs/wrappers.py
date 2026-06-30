@@ -1,10 +1,10 @@
 
-from statisticalrl_environments.MABs.StochasticBandits import MAB
+from statisticalrl_environments.MABs.envs.StochasticBandits import MAB
 
 import numpy as np
 
 class MABofMDP: #TODO: to make a wrapper to MAB, we need reward distributions!
-    def __init__(self, mdp, policies,max_step=np.infty):
+    def __init__(self, mdp, policies,max_step=np.inf):
         self.mdp_env = mdp
         self.policies = policies
         self.max_step = max_step
@@ -82,7 +82,7 @@ class BatchMAB(MAB):
 
 
 
-from statisticalrl_environments.MABs.StochasticBandits import BinomialBandit
+from statisticalrl_environments.MABs.envs.StochasticBandits import BinomialBandit
 class BatchQBinMAB(BatchMAB):
     def __init__(self,probabilities,batchsize,quantization_range,repetitions,name):
         # BinomialBandit

@@ -16,7 +16,7 @@ def registerBernBandit(means,  max_steps=INFINITY,  reward_threshold=1.):
     name = 'MAB-Bernoulli-v0'
     register(
         id=name,
-        entry_point='statisticalrl_environments.MABs.StochasticBandits:BernoulliBandit',
+        entry_point='statisticalrl_environments.MABs.envs.StochasticBandits:BernoulliBandit',
         max_episode_steps=max_steps,
         reward_threshold=reward_threshold,
         kwargs={'means': means, 'name':name }
@@ -28,7 +28,7 @@ def registerGaussBandit(means,  vars, max_steps=INFINITY,  reward_threshold=1.):
     name = 'MAB-Gaussian-v0'
     register(
         id=name,
-        entry_point='statisticalrl_environments.MABs.StochasticBandits:GaussianBandit',
+        entry_point='statisticalrl_environments.MABs.envs.StochasticBandits:GaussianBandit',
         max_episode_steps=max_steps,
         reward_threshold=reward_threshold,
         kwargs={'means': means, 'vars': vars, 'name':name }
@@ -40,7 +40,7 @@ def registerBinomialBandit(means,  repetitions, max_steps=INFINITY,  reward_thre
     name = 'MAB-Gaussian-v0'
     register(
         id=name,
-        entry_point='statisticalrl_environments.MABs.StochasticBandits:BinomialBandit',
+        entry_point='statisticalrl_environments.MABs.envs.StochasticBandits:BinomialBandit',
         max_episode_steps=max_steps,
         reward_threshold=repetitions,
         kwargs={'means': means, 'repetitions': repetitions, 'name':name }
@@ -60,7 +60,7 @@ def registerBatchQBinMAB(means,batchsize,quantization_range,repetitions):
     return name
 
 ### MDPs
-def registerRandomMDP(nbStates=5, nbActions=4, max_steps=INFINITY, reward_threshold=np.infty, maxProportionSupportTransition=0.5, maxProportionSupportReward=0.1, maxProportionSupportStart=0.2, minNonZeroProbability=0.2, minNonZeroReward=0.3, rewardStd=0.5, ergodic=0.,seed=None):
+def registerRandomMDP(nbStates=5, nbActions=4, max_steps=INFINITY, reward_threshold=np.inf, maxProportionSupportTransition=0.5, maxProportionSupportReward=0.1, maxProportionSupportStart=0.2, minNonZeroProbability=0.2, minNonZeroReward=0.3, rewardStd=0.5, ergodic=0.,seed=None):
     name = 'RandomMDP-S'+str(nbStates)+'_A'+str(nbActions)+'_s'+str(seed)+'-v0'
     if(ergodic>0):
         name = 'ErgodicRandomMDP-S' + str(nbStates) + '_A' + str(nbActions) + '_s' + str(seed) + '-v0'
@@ -74,7 +74,7 @@ def registerRandomMDP(nbStates=5, nbActions=4, max_steps=INFINITY, reward_thresh
     )
     return name
 
-def registerRiverSwim(nbStates=5, max_steps=INFINITY, reward_threshold=np.infty, rightProbaright=0.6, rightProbaLeft=0.05, rewardL=0.1, rewardR=1.):
+def registerRiverSwim(nbStates=5, max_steps=INFINITY, reward_threshold=np.inf, rightProbaright=0.6, rightProbaLeft=0.05, rewardL=0.1, rewardR=1.):
     name = 'RiverSwim-S'+str(nbStates)+'-v0'
     register(
         id=name,
@@ -87,7 +87,7 @@ def registerRiverSwim(nbStates=5, max_steps=INFINITY, reward_threshold=np.infty,
     return name
 
 
-def registerErgodicRiverSwim(nbStates=5, max_steps=INFINITY, reward_threshold=np.infty, rightProbaright=0.6, rightProbaLeft=0.05, rewardL=0.1, rewardR=1., ergodic=0.001):
+def registerErgodicRiverSwim(nbStates=5, max_steps=INFINITY, reward_threshold=np.inf, rightProbaright=0.6, rightProbaLeft=0.05, rewardL=0.1, rewardR=1., ergodic=0.001):
     name = 'ErgodicRiverSwim-S'+str(nbStates)+'-v0'
     register(
         id=name,
@@ -100,7 +100,7 @@ def registerErgodicRiverSwim(nbStates=5, max_steps=INFINITY, reward_threshold=np
     return name
 
 
-def registerGridworld(sizeX=10, sizeY=10, map_name="4-room", rewardStd=0., initialSingleStateDistribution=False, max_steps=INFINITY, reward_threshold=np.infty, start=None, goal=None, seed=0):
+def registerGridworld(sizeX=10, sizeY=10, map_name="4-room", rewardStd=0., initialSingleStateDistribution=False, max_steps=INFINITY, reward_threshold=np.inf, start=None, goal=None, seed=0):
     name ='Gridworld-'+map_name+'-v0'
     register(
         id=name,
@@ -112,7 +112,7 @@ def registerGridworld(sizeX=10, sizeY=10, map_name="4-room", rewardStd=0., initi
     return name
 
 
-def registerRandomGridworld(sizeX=10, sizeY=10,rewardStd=0., initialSingleStateDistribution=False, max_steps=INFINITY, reward_threshold=np.infty, density=0.2, seed=0):
+def registerRandomGridworld(sizeX=10, sizeY=10,rewardStd=0., initialSingleStateDistribution=False, max_steps=INFINITY, reward_threshold=np.inf, density=0.2, seed=0):
     name ='RandomGridworld-'+str(sizeX)+'x'+str(sizeY)+'_s'+str(seed)+'-v0'
     register(
         id=name,
@@ -124,7 +124,7 @@ def registerRandomGridworld(sizeX=10, sizeY=10,rewardStd=0., initialSingleStateD
     return name
 
 
-def registerThreeState(delta = 0.005, max_steps=INFINITY, reward_threshold=np.infty, fixed_reward = True):
+def registerThreeState(delta = 0.005, max_steps=INFINITY, reward_threshold=np.inf, fixed_reward = True):
     name = 'ThreeState-v0'
     register(
         id=name,
@@ -136,7 +136,7 @@ def registerThreeState(delta = 0.005, max_steps=INFINITY, reward_threshold=np.in
     return name
 
 
-def registerNasty(delta = 0.005, epsilon=0.05, max_steps=INFINITY, reward_threshold=np.infty, fixed_reward = True):
+def registerNasty(delta = 0.005, epsilon=0.05, max_steps=INFINITY, reward_threshold=np.inf, fixed_reward = True):
     name = 'Nasty-v0'
     register(
         id=name,
@@ -153,8 +153,8 @@ registerStatisticalRLenvironments = {
     "mab-bernoulli": lambda x: registerBernBandit(means=[0.2, 0.8, 0.3, 0.7]),
     "mab-gaussian": lambda x: registerGaussBandit(means=[0.2, 0.8, 0.3, 0.7],vars=[1.,1.,1.,1.]),
     "mab-binomial": lambda x: registerBinomialBandit(means=[0.2, 0.8, 0.3, 0.7], repetitions=200),
-    "mab-batch-quantized": lambda x: registerBatchQBinMAB(means=[0.1, 0.15, 0.2, 0.75, 0.85, 0.9], batchsize=5,
-                                                       quantization_range=15, repetitions=200),
+   # "mab-batch-quantized": lambda x: registerBatchQBinMAB(means=[0.1, 0.15, 0.2, 0.75, 0.85, 0.9], batchsize=5,
+   #                                                    quantization_range=15, repetitions=200),
     "random-rich": lambda x: registerRandomMDP(nbStates=10, nbActions=4, maxProportionSupportTransition=0.12,
                                             maxProportionSupportReward=0.8, maxProportionSupportStart=0.1,
                                             minNonZeroProbability=0.15, minNonZeroReward=0.4, rewardStd=0, seed=10),

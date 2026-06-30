@@ -1,4 +1,4 @@
-from statisticalrl_environments.MABs.StochasticBandits import MAB
+from statisticalrl_environments.MABs.envs.StochasticBandits import MAB
 
 
 import numpy as np

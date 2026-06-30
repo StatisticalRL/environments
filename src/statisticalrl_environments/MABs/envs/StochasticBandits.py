@@ -1,6 +1,7 @@
 import numpy as np
 import statisticalrl_environments.MABs.Distributions as arms
 import string
+from statisticalrl_environments.MABs.Distributions import Binomial,Bernoulli,TruncatedExponential,Exponential,Gaussian
 
 
 from gymnasium import Env, spaces

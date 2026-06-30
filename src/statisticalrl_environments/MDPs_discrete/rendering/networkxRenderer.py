@@ -95,7 +95,8 @@ class GraphRenderer:
                     ax.add_patch(e)
                     if (d['rw'] > 0):
                         countsR[u][v] = countsR[u][v] + 1
-                        nx.draw_networkx_edge_labels([u, v, d], pos,
+                        nx.draw_networkx_edge_labels(self.G, #[u, v, d],
+                                                     pos,
                                                      edge_labels=dict([((u, v), str(np.ceil(d['rw'] * 100) / 100))]),
                                                      label_pos=0.5 + 0.1 * countsR[u][v], font_color=color, alpha=alpha,
                                                      font_size=8)
@@ -124,7 +125,8 @@ class GraphRenderer:
                         countsR[u][v] = countsR[u][v] + 1
                         pos[u] = [pos[u][0] + 0.1 * (2 * countsR[u][v] + scalearrow),
                                   pos[u][1] + 0.1 * (2 * countsR[u][v] + scalearrow)]
-                        nx.draw_networkx_edge_labels([u, v, d], pos,
+                        nx.draw_networkx_edge_labels(self.G,#[u, v, d],
+                                                     pos,
                                                      edge_labels=dict(
                                                          [((u, v), str(np.ceil(d['rw'] * 100) / 100))]),
                                                      label_pos=0.5, font_color=color,

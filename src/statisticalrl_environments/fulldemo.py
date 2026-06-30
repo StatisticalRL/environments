@@ -81,7 +81,7 @@ def all_environments():
 if __name__ == "__main__":
 
     print_registered_environments()
-    random_environment()
+    #random_environment()
     all_environments()
 
 
