@@ -6,7 +6,13 @@ INFINITY=sys.maxsize
 
 
 """
-This file contains methods to register several MDP/MABS src into gym.
+This module provides a structured and documented interface for registering
+a collection of Multi-Armed Bandits (MABs), Markov Decision Processes (MDPs),
+and benchmark reinforcement learning environments into Gymnasium.
+
+It wraps `gymnasium.envs.registration.register` with higher-level, reproducible
+APIs and ensures consistent naming, parameter handling, and configuration.
+
 Name of src should not contain symbol '_'. 
 
 """

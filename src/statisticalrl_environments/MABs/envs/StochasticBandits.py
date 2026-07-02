@@ -94,6 +94,7 @@ def BernoulliBandit(means, structure='unknown', parameter=None, name="MAB-Bernou
     return MAB([arms.Bernoulli(p) for p in means], distributionType='Bernoulli', structureType=structure,
                structureParameter=parameter, name=name)
 
+
 def BinomialBandit(means, repetitions=200, name="MAB-Binomial"):
     """define a Bernoulli MAB from a vector of means"""
     s="-".join(str(m) for m in means)
@@ -107,8 +108,6 @@ def GaussianBandit(means, vars, structure='unknown', parameter=None, name="MAB-G
     return MAB([arms.Gaussian(m, v) for m,v in zip(means,vars)], distributionType='Gaussian', structureType=structure,structureParameter=parameter,name=name)
 
 
-
-
 def TruncatedGaussianBandit(means, sigma=0.5, low=-1.0, high=1.0, name="MAB-TruncGaussian"):
     s = "-".join(str(m) for m in means)
     name = f'{name}-sigma{sigma}-means-{s}'
@@ -116,11 +115,13 @@ def TruncatedGaussianBandit(means, sigma=0.5, low=-1.0, high=1.0, name="MAB-Trun
                distributionType='TruncatedGaussian', structureType='unknown',
                structureParameter=None, name=name)
 
+
 def BinomialBandit(means, repetitions=200, name="MAB-Binomial"):
     s = "-".join(str(m) for m in means)
     name = f'{name}{repetitions}-means-{s}'
     return MAB([Binomial(repetitions, p) for p in means], distributionType='Binomial',
                structureType='unknown', structureParameter=None, name=name)
+
 
 def RandomBernoulliBandit(Delta, K, name="MAB-RandomBernoulli"):
     """generates a K-armed Bernoulli instance at random where Delta is the gap between the best and second best arm"""
