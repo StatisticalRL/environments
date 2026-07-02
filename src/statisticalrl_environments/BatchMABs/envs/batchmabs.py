@@ -1,6 +1,8 @@
 
 from statisticalrl_environments.BatchMABs.wrappers import QuantizedMAB, BatchMAB
 from statisticalrl_environments.MABs.Distributions import Binomial, Gaussian, TruncatedGaussian, Bernoulli
+from statisticalrl_environments.MABs.envs.StochasticBandits import BinomialBandit, GaussianBandit, TruncatedGaussianBandit, BernoulliBandit
+
 
 class BatchBandit(BatchMAB):
     def __init__(self, action_names, probabilities, batchsize, repetitions, name):
@@ -8,6 +10,7 @@ class BatchBandit(BatchMAB):
         super(BatchBandit, self).__init__(
             QuantizedMAB(BinomialBandit(means=probabilities, repetitions=repetitions), 0, repetitions),
             batchsize)
+
         self.name = name
 
 
