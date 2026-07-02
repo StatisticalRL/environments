@@ -43,7 +43,7 @@ def registerGaussBandit(means,  vars, max_steps=INFINITY,  reward_threshold=1.):
 
 
 def registerBinomialBandit(means,  repetitions, max_steps=INFINITY,  reward_threshold=1.):
-    name = 'MAB-Gaussian-v0'
+    name = 'MAB-Binomial-v0'
     register(
         id=name,
         entry_point='statisticalrl_environments.MABs.envs.StochasticBandits:BinomialBandit',

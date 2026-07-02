@@ -111,10 +111,10 @@ class ErgodicRiverSwim(DiscreteMDP):
                 pll = 1.-ergodic
             if (s < self.nS - 1):
                 li.append((ergodic/2, s + 1, False))
-                self.transitions[s][0][s + 1] = ergodic/2
+                self.transitions[s][1][s + 1] = ergodic/2
                 plr = ergodic/2
             li.append((1. - plr - pll, s, False))
-            self.transitions[s][0][s] = 1. - plr - pll
+            self.transitions[s][1][s] = 1. - plr - pll
 
             self.rewards[s] = {}
             if (s == self.nS - 1):
