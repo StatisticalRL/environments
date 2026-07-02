@@ -1,7 +1,5 @@
 
 import sys
-from gymnasium import utils
-import string
 
 class textRenderer:
 
