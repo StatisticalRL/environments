@@ -116,13 +116,6 @@ def TruncatedGaussianBandit(means, sigma=0.5, low=-1.0, high=1.0, name="MAB-Trun
                structureParameter=None, name=name)
 
 
-def BinomialBandit(means, repetitions=200, name="MAB-Binomial"):
-    s = "-".join(str(m) for m in means)
-    name = f'{name}{repetitions}-means-{s}'
-    return MAB([Binomial(repetitions, p) for p in means], distributionType='Binomial',
-               structureType='unknown', structureParameter=None, name=name)
-
-
 def RandomBernoulliBandit(Delta, K, name="MAB-RandomBernoulli"):
     """generates a K-armed Bernoulli instance at random where Delta is the gap between the best and second best arm"""
     maxMean = Delta + np.random.rand() * (1. - Delta)
